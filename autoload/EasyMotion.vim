@@ -154,7 +154,7 @@ function! EasyMotion#OverwinF(num_strokes) " {{{
         return EasyMotion#overwin#move(re)
     endif
 endfunction "}}}
-function! EasyMotion#T(num_strokes, visualmode, direction, timeout) " {{{
+function! EasyMotion#T(num_strokes, visualmode, direction, ...) " {{{
     if a:direction == 1
         let is_inclusive = 0
     else
@@ -279,12 +279,12 @@ function! EasyMotion#JumpToAnywhere(visualmode, direction) " {{{
     return s:EasyMotion_is_cancelled
 endfunction " }}}
 " -- Line Motion -------------------------
-function! EasyMotion#SL(num_strokes, visualmode, direction, timeout) " {{{
+function! EasyMotion#SL(num_strokes, visualmode, direction, ...) " {{{
     let s:flag.within_line = 1
     call EasyMotion#S(a:num_strokes, a:visualmode, a:direction, get(a:, 0, 0))
     return s:EasyMotion_is_cancelled
 endfunction " }}}
-function! EasyMotion#TL(num_strokes, visualmode, direction, timeout) " {{{
+function! EasyMotion#TL(num_strokes, visualmode, direction, ...) " {{{
     let s:flag.within_line = 1
     call EasyMotion#T(a:num_strokes, a:visualmode, a:direction, get(a:, 0, 0))
     return s:EasyMotion_is_cancelled
